@@ -1,0 +1,2 @@
+- Avoid using regex where possible. Add a comment above each non-trivial regex breaking it down.
+- Reference the git submodules in `reference_repositories` for best practices, usage examples, and documentation for the frameworks and packages we use.
