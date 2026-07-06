@@ -14,7 +14,7 @@ export class TodoIds extends Context.Service<
 		readonly fromSeed: (value: string) => TodoId;
 		readonly fromSequence: (value: number) => TodoId;
 	}
->()("effect-lit-demo1/todo/model/TodoIds") {
+>()("effect-ui-example-todo/todo/model/TodoIds") {
 	static readonly layer = Layer.succeed(TodoIds)({
 		fromSeed: TodoId,
 		fromSequence: (value) => TodoId(`todo-${value}`),
@@ -28,7 +28,7 @@ export class TodoModel extends Context.Service<
 		readonly apply: (state: TodoState, command: TodoCommand) => TodoState;
 		readonly snapshot: (state: TodoState) => TodoSnapshot;
 	}
->()("effect-lit-demo1/todo/model/TodoModel") {
+>()("effect-ui-example-todo/todo/model/TodoModel") {
 	static readonly layer = Layer.effect(
 		TodoModel,
 		Effect.gen(function* () {

@@ -14,7 +14,7 @@ export class TodoShell extends Context.Service<
 			selector: string,
 		) => Effect.Effect<void, MissingRootElementError | HtmlRenderError>;
 	}
->()("effect-lit-demo1/ui/shell/TodoShell") {
+>()("effect-ui-example-todo/ui/shell/TodoShell") {
 	static readonly layer = Layer.effect(
 		TodoShell,
 		Effect.gen(function* () {

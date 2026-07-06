@@ -14,7 +14,7 @@ export class TodoAppView extends Context.Service<
 			dispatch: DispatchTodoCommand,
 		) => TemplateResult;
 	}
->()("effect-lit-demo1/ui/views/app-view/TodoAppView") {
+>()("effect-ui-example-todo/ui/views/app-view/TodoAppView") {
 	static readonly layer = Layer.effect(
 		TodoAppView,
 		Effect.gen(function* () {

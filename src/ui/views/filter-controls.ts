@@ -11,7 +11,7 @@ export class TodoFilterControlsView extends Context.Service<
 			dispatch: DispatchTodoCommand,
 		) => TemplateResult;
 	}
->()("effect-lit-demo1/ui/views/filter-controls/TodoFilterControlsView") {
+>()("effect-ui-example-todo/ui/views/filter-controls/TodoFilterControlsView") {
 	static readonly layer = Layer.effect(
 		TodoFilterControlsView,
 		Effect.gen(function* () {

@@ -1,5 +1,5 @@
 {
-	"name": "effect-lit-demo1",
+	"name": "effect-ui-example-todo",
 	"module": "index.ts",
 	"type": "module",
 	"scripts": {

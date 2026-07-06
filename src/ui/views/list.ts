@@ -16,7 +16,7 @@ export class TodoListView extends Context.Service<
 			dispatch: DispatchTodoCommand,
 		) => TemplateResult;
 	}
->()("effect-lit-demo1/ui/views/list/TodoListView") {
+>()("effect-ui-example-todo/ui/views/list/TodoListView") {
 	static readonly layer = Layer.effect(
 		TodoListView,
 		Effect.gen(function* () {

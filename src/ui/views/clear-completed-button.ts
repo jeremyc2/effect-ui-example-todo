@@ -15,7 +15,7 @@ export class TodoClearCompletedButtonView extends Context.Service<
 		) => TemplateResult;
 	}
 >()(
-	"effect-lit-demo1/ui/views/clear-completed-button/TodoClearCompletedButtonView",
+	"effect-ui-example-todo/ui/views/clear-completed-button/TodoClearCompletedButtonView",
 ) {
 	static readonly layer = Layer.sync(TodoClearCompletedButtonView)(() =>
 		TodoClearCompletedButtonView.of({

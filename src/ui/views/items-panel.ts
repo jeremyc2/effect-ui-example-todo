@@ -12,7 +12,7 @@ export class TodoItemsPanelView extends Context.Service<
 			dispatch: DispatchTodoCommand,
 		) => TemplateResult;
 	}
->()("effect-lit-demo1/ui/views/items-panel/TodoItemsPanelView") {
+>()("effect-ui-example-todo/ui/views/items-panel/TodoItemsPanelView") {
 	static readonly layer = Layer.effect(
 		TodoItemsPanelView,
 		Effect.gen(function* () {

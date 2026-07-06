@@ -13,7 +13,7 @@ export class HtmlRenderer extends Context.Service<
 			dispatch: DispatchTodoCommand,
 		) => Effect.Effect<void, HtmlRenderError>;
 	}
->()("effect-lit-demo1/ui/renderer/HtmlRenderer") {
+>()("effect-ui-example-todo/ui/renderer/HtmlRenderer") {
 	static readonly layer = Layer.effect(
 		HtmlRenderer,
 		Effect.gen(function* () {

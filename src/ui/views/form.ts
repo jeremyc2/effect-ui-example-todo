@@ -14,7 +14,7 @@ export class TodoFormView extends Context.Service<
 			dispatch: DispatchTodoCommand,
 		) => TemplateResult;
 	}
->()("effect-lit-demo1/ui/views/form/TodoFormView") {
+>()("effect-ui-example-todo/ui/views/form/TodoFormView") {
 	static readonly layer = Layer.sync(TodoFormView)(() =>
 		TodoFormView.of({
 			render: (snapshot, dispatch) => html`

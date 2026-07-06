@@ -12,7 +12,7 @@ export class TodoToolbarView extends Context.Service<
 			dispatch: DispatchTodoCommand,
 		) => TemplateResult;
 	}
->()("effect-lit-demo1/ui/views/toolbar/TodoToolbarView") {
+>()("effect-ui-example-todo/ui/views/toolbar/TodoToolbarView") {
 	static readonly layer = Layer.effect(
 		TodoToolbarView,
 		Effect.gen(function* () {

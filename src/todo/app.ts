@@ -8,7 +8,7 @@ export class TodoApp extends Context.Service<
 		readonly snapshot: Effect.Effect<TodoSnapshot>;
 		readonly execute: (command: TodoCommand) => Effect.Effect<TodoSnapshot>;
 	}
->()("effect-lit-demo1/todo/app/TodoApp") {
+>()("effect-ui-example-todo/todo/app/TodoApp") {
 	static readonly layer = Layer.effect(
 		TodoApp,
 		Effect.gen(function* () {

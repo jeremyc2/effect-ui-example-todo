@@ -7,7 +7,7 @@ export class TodoEmptyStateView extends Context.Service<
 	{
 		readonly render: (filter: TodoFilter) => TemplateResult;
 	}
->()("effect-lit-demo1/ui/views/empty-state/TodoEmptyStateView") {
+>()("effect-ui-example-todo/ui/views/empty-state/TodoEmptyStateView") {
 	static readonly layer = Layer.sync(TodoEmptyStateView)(() => {
 		const messageByFilter = {
 			all: "No tasks yet.",

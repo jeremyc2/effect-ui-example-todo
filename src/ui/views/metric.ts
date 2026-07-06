@@ -6,7 +6,7 @@ export class TodoMetricView extends Context.Service<
 	{
 		readonly render: (label: string, value: number) => TemplateResult;
 	}
->()("effect-lit-demo1/ui/views/metric/TodoMetricView") {
+>()("effect-ui-example-todo/ui/views/metric/TodoMetricView") {
 	static readonly layer = Layer.sync(TodoMetricView)(() =>
 		TodoMetricView.of({
 			render: (label, value) => html`

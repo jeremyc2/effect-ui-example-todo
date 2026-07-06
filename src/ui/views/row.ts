@@ -14,7 +14,7 @@ export class TodoRowView extends Context.Service<
 			dispatch: DispatchTodoCommand,
 		) => TemplateResult;
 	}
->()("effect-lit-demo1/ui/views/row/TodoRowView") {
+>()("effect-ui-example-todo/ui/views/row/TodoRowView") {
 	static readonly layer = Layer.sync(TodoRowView)(() =>
 		TodoRowView.of({
 			render: (todo, dispatch) => html`

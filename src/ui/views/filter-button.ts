@@ -17,7 +17,7 @@ export class TodoFilterButtonView extends Context.Service<
 			filter: TodoFilter,
 		) => TemplateResult;
 	}
->()("effect-lit-demo1/ui/views/filter-button/TodoFilterButtonView") {
+>()("effect-ui-example-todo/ui/views/filter-button/TodoFilterButtonView") {
 	static readonly layer = Layer.sync(TodoFilterButtonView)(() =>
 		TodoFilterButtonView.of({
 			render: (snapshot, dispatch, label, filter) => html`

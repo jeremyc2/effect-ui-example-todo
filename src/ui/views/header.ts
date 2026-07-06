@@ -8,7 +8,7 @@ export class TodoHeaderView extends Context.Service<
 	{
 		readonly render: (snapshot: TodoSnapshot) => TemplateResult;
 	}
->()("effect-lit-demo1/ui/views/header/TodoHeaderView") {
+>()("effect-ui-example-todo/ui/views/header/TodoHeaderView") {
 	static readonly layer = Layer.effect(
 		TodoHeaderView,
 		Effect.gen(function* () {
