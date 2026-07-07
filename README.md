@@ -38,6 +38,14 @@ bun dev
 
 Then open `http://localhost:3000`.
 
+Build a static, server-rendered copy:
+
+```sh
+bun run build
+```
+
+The build writes `out/index.html` plus minified CSS and JavaScript assets under `out/assets`. The generated `out` directory is plain static HTML, CSS, and browser JavaScript, so it can be served from a CDN or any static file host without a Bun runtime.
+
 ## Quality checks
 
 Run the TypeScript checker:

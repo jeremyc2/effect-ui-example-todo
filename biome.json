@@ -7,7 +7,7 @@
 	},
 	"files": {
 		"ignoreUnknown": false,
-		"includes": ["**", "!reference_repositories"]
+		"includes": ["**", "!reference_repositories", "!out"]
 	},
 	"formatter": {
 		"enabled": true,

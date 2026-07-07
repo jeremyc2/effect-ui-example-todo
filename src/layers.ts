@@ -1,8 +1,6 @@
 import { Layer } from "effect";
 import { TodoApp } from "./todo/app.ts";
 import { TodoIds, TodoModel } from "./todo/model.ts";
-import { HtmlRenderer } from "./ui/renderer.ts";
-import { TodoShell } from "./ui/shell.ts";
 import {
 	TodoAppView,
 	TodoClearCompletedButtonView,
@@ -19,7 +17,7 @@ import {
 } from "./ui/views/index.ts";
 
 const TodoModelLive = TodoModel.layer.pipe(Layer.provide(TodoIds.layer));
-const TodoAppLive = TodoApp.layer.pipe(Layer.provide(TodoModelLive));
+export const TodoAppLive = TodoApp.layer.pipe(Layer.provide(TodoModelLive));
 
 const TodoHeaderViewLive = TodoHeaderView.layer.pipe(
 	Layer.provide(TodoMetricView.layer),
@@ -46,7 +44,7 @@ const TodoItemsPanelViewLive = TodoItemsPanelView.layer.pipe(
 	Layer.provide(Layer.mergeAll(TodoEmptyStateView.layer, TodoListViewLive)),
 );
 
-const TodoAppViewLive = TodoAppView.layer.pipe(
+export const TodoAppViewLive = TodoAppView.layer.pipe(
 	Layer.provide(
 		Layer.mergeAll(
 			TodoHeaderViewLive,
@@ -56,11 +54,3 @@ const TodoAppViewLive = TodoAppView.layer.pipe(
 		),
 	),
 );
-
-const HtmlRendererLive = HtmlRenderer.layer.pipe(
-	Layer.provide(TodoAppViewLive),
-);
-
-const ShellDependencies = Layer.mergeAll(TodoAppLive, HtmlRendererLive);
-
-export const AppLayer = TodoShell.layer.pipe(Layer.provide(ShellDependencies));

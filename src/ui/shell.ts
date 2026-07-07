@@ -5,7 +5,7 @@ import {
 	MissingRootElementError,
 } from "../todo/errors.ts";
 import type { DispatchTodoCommand } from "../todo/schema.ts";
-import { HtmlRenderer } from "./renderer.ts";
+import { HtmlRenderer } from "./html-renderer.ts";
 
 /**
  * Mounts the todo UI into the browser document and wires user commands back
@@ -47,7 +47,7 @@ export class TodoShell extends Context.Service<
 				};
 
 				const snapshot = yield* todoApp.snapshot;
-				yield* htmlRenderer.render(root, snapshot, dispatch);
+				yield* htmlRenderer.mount(root, snapshot, dispatch);
 			});
 
 			return TodoShell.of({
