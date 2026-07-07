@@ -2,6 +2,9 @@ import { Context, Layer } from "effect";
 import { html, type TemplateResult } from "lit-html";
 import type { TodoFilter } from "../../todo/schema.ts";
 
+/**
+ * Renders the empty-list message that matches the active todo filter.
+ */
 export class TodoEmptyStateView extends Context.Service<
 	TodoEmptyStateView,
 	{

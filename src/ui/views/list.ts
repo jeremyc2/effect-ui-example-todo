@@ -8,6 +8,9 @@ import type {
 } from "../../todo/schema.ts";
 import { TodoRowView } from "./row.ts";
 
+/**
+ * Renders the filtered todo items as a keyed list using the row view service.
+ */
 export class TodoListView extends Context.Service<
 	TodoListView,
 	{

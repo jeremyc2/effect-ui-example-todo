@@ -8,19 +8,25 @@ import {
 	type TodoState,
 } from "./schema.ts";
 
+/**
+ * Creates branded todo identifiers from strings or sequence numbers.
+ */
 export class TodoIds extends Context.Service<
 	TodoIds,
 	{
-		readonly fromSeed: (value: string) => TodoId;
+		readonly fromString: (value: string) => TodoId;
 		readonly fromSequence: (value: number) => TodoId;
 	}
 >()("effect-ui-example-todo/todo/model/TodoIds") {
 	static readonly layer = Layer.succeed(TodoIds)({
-		fromSeed: TodoId,
+		fromString: TodoId,
 		fromSequence: (value) => TodoId(`todo-${value}`),
 	});
 }
 
+/**
+ * Owns the pure todo state transitions and derives read snapshots for the UI.
+ */
 export class TodoModel extends Context.Service<
 	TodoModel,
 	{
@@ -65,12 +71,12 @@ export class TodoModel extends Context.Service<
 			const initialState: TodoState = {
 				items: [
 					TodoItem.make({
-						id: todoIds.fromSeed("todo-1"),
+						id: todoIds.fromString("todo-1"),
 						title: "Sketch the domain language",
 						completed: true,
 					}),
 					TodoItem.make({
-						id: todoIds.fromSeed("todo-2"),
+						id: todoIds.fromString("todo-2"),
 						title: "Keep the interface small",
 						completed: false,
 					}),

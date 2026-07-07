@@ -1,6 +1,9 @@
 import { Context, Layer } from "effect";
 import { html, type TemplateResult } from "lit-html";
 
+/**
+ * Renders one numeric summary metric in the todo header.
+ */
 export class TodoMetricView extends Context.Service<
 	TodoMetricView,
 	{

@@ -6,6 +6,9 @@ import {
 	type TodoSnapshot,
 } from "../../todo/schema.ts";
 
+/**
+ * Renders the draft entry form and dispatches draft updates or submissions.
+ */
 export class TodoFormView extends Context.Service<
 	TodoFormView,
 	{

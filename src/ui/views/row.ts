@@ -6,6 +6,9 @@ import {
 	type TodoItem,
 } from "../../todo/schema.ts";
 
+/**
+ * Renders a single todo row with completion and delete interactions.
+ */
 export class TodoRowView extends Context.Service<
 	TodoRowView,
 	{

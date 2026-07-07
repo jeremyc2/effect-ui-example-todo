@@ -4,6 +4,9 @@ import type { DispatchTodoCommand, TodoSnapshot } from "../../todo/schema.ts";
 import { TodoEmptyStateView } from "./empty-state.ts";
 import { TodoListView } from "./list.ts";
 
+/**
+ * Renders the todo items panel, choosing between the empty state and list view.
+ */
 export class TodoItemsPanelView extends Context.Service<
 	TodoItemsPanelView,
 	{

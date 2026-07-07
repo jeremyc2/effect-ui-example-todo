@@ -7,6 +7,10 @@ import {
 import type { DispatchTodoCommand } from "../todo/schema.ts";
 import { HtmlRenderer } from "./renderer.ts";
 
+/**
+ * Mounts the todo UI into the browser document and wires user commands back
+ * into the application runtime.
+ */
 export class TodoShell extends Context.Service<
 	TodoShell,
 	{

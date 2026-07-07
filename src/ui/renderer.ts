@@ -4,6 +4,10 @@ import { HtmlRenderError } from "../todo/errors.ts";
 import type { DispatchTodoCommand, TodoSnapshot } from "../todo/schema.ts";
 import { TodoAppView } from "./views/index.ts";
 
+/**
+ * Renders the todo application template into a DOM root and maps rendering
+ * failures into typed todo UI errors.
+ */
 export class HtmlRenderer extends Context.Service<
 	HtmlRenderer,
 	{

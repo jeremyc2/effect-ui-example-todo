@@ -6,6 +6,9 @@ import {
 	type TodoSnapshot,
 } from "../../todo/schema.ts";
 
+/**
+ * Renders the clear-completed control and dispatches the command when enabled.
+ */
 export class TodoClearCompletedButtonView extends Context.Service<
 	TodoClearCompletedButtonView,
 	{

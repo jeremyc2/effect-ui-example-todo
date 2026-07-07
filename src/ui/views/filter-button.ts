@@ -7,6 +7,9 @@ import {
 	type TodoSnapshot,
 } from "../../todo/schema.ts";
 
+/**
+ * Renders a single filter option and dispatches a filter-change command.
+ */
 export class TodoFilterButtonView extends Context.Service<
 	TodoFilterButtonView,
 	{

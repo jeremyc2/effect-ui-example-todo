@@ -6,6 +6,9 @@ import { TodoHeaderView } from "./header.ts";
 import { TodoItemsPanelView } from "./items-panel.ts";
 import { TodoToolbarView } from "./toolbar.ts";
 
+/**
+ * Renders the complete todo application layout from the current snapshot.
+ */
 export class TodoAppView extends Context.Service<
 	TodoAppView,
 	{

@@ -3,6 +3,9 @@ import { html, type TemplateResult } from "lit-html";
 import type { DispatchTodoCommand, TodoSnapshot } from "../../todo/schema.ts";
 import { TodoFilterButtonView } from "./filter-button.ts";
 
+/**
+ * Renders the group of todo filter controls for the current snapshot.
+ */
 export class TodoFilterControlsView extends Context.Service<
 	TodoFilterControlsView,
 	{

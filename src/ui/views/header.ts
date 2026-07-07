@@ -3,6 +3,9 @@ import { html, type TemplateResult } from "lit-html";
 import type { TodoSnapshot } from "../../todo/schema.ts";
 import { TodoMetricView } from "./metric.ts";
 
+/**
+ * Renders the application heading and summary metrics for the current snapshot.
+ */
 export class TodoHeaderView extends Context.Service<
 	TodoHeaderView,
 	{

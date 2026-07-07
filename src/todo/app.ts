@@ -2,6 +2,10 @@ import { Context, Effect, Layer, Ref } from "effect";
 import { TodoModel } from "./model.ts";
 import type { TodoCommand, TodoSnapshot } from "./schema.ts";
 
+/**
+ * Manages the live todo application state and executes todo commands against
+ * the model.
+ */
 export class TodoApp extends Context.Service<
 	TodoApp,
 	{

@@ -4,6 +4,9 @@ import type { DispatchTodoCommand, TodoSnapshot } from "../../todo/schema.ts";
 import { TodoClearCompletedButtonView } from "./clear-completed-button.ts";
 import { TodoFilterControlsView } from "./filter-controls.ts";
 
+/**
+ * Renders the todo toolbar by composing filter controls with bulk actions.
+ */
 export class TodoToolbarView extends Context.Service<
 	TodoToolbarView,
 	{
