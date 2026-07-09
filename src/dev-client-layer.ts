@@ -3,8 +3,12 @@ import { TodoAppLive, TodoAppViewLive } from "./layers.ts";
 import { DomHtmlRendererLive } from "./ui/renderers/dom-html-renderer.ts";
 import { TodoShell } from "./ui/shell.ts";
 
-const ShellDependencies = Layer.mergeAll(TodoAppLive, DomHtmlRendererLive).pipe(
-	Layer.provide(TodoAppViewLive),
+const ShellDependencies = Layer.suspend(() =>
+	Layer.mergeAll(TodoAppLive, DomHtmlRendererLive).pipe(
+		Layer.provide(TodoAppViewLive),
+	),
 );
 
-export const AppLayer = TodoShell.layer.pipe(Layer.provide(ShellDependencies));
+export const AppLayer = Layer.suspend(() =>
+	TodoShell.layer.pipe(Layer.provide(ShellDependencies)),
+);

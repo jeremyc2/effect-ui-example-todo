@@ -17,8 +17,11 @@ Effect UI keeps the app's state transitions, dependencies, and error handling in
 - `src/todo/schema.ts` defines the Todo commands, state, snapshots, and item schema.
 - `src/todo/model.ts` owns pure state transitions and snapshot derivation.
 - `src/todo/app.ts` wraps the model in an Effect service with mutable app state.
+- `src/index.html`, `src/index.ts`, and `src/style.css` are the browser dev entry files.
+- `src/server.ts` serves the Bun fullstack dev app.
+- `scripts/build.ts` builds the static app.
 - `src/ui/views/` contains Lit HTML view services.
-- `src/ui/renderer.ts` renders snapshots into the DOM.
+- `src/ui/html-renderer.ts` defines the browser rendering boundary.
 - `src/ui/shell.ts` connects DOM mounting, dispatch, and render updates.
 - `src/layers.ts` wires the Effect service graph.
 

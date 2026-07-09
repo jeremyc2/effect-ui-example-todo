@@ -5,9 +5,9 @@ import { collectResult } from "@lit-labs/ssr/lib/render-result.js";
 import tailwind from "bun-plugin-tailwind";
 import { Console, Effect, Layer, ManagedRuntime, Schema } from "effect";
 import { Command } from "effect/unstable/cli";
-import { ServerRenderLayer } from "./src/server-render-layer.ts";
-import { TodoApp } from "./src/todo/app.ts";
-import { TodoAppView } from "./src/ui/views/index.ts";
+import { ServerRenderLayer } from "../src/server-render-layer.ts";
+import { TodoApp } from "../src/todo/app.ts";
+import { TodoAppView } from "../src/ui/views/index.ts";
 
 class StaticBuildError extends Schema.TaggedErrorClass<StaticBuildError>()(
 	"StaticBuildError",
@@ -139,7 +139,7 @@ const buildStaticAssets = Effect.tryPromise({
 	// @effect-diagnostics-next-line asyncFunction:off -- Async function in Effect.tryPromise is allowed.
 	try: async () => {
 		const result = await Bun.build({
-			entrypoints: ["./static-client.ts", "./style.css"],
+			entrypoints: ["./src/static-client.ts", "./src/style.css"],
 			format: "esm",
 			minify: true,
 			naming: {

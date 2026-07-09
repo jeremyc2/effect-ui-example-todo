@@ -1,10 +1,10 @@
 {
 	"name": "effect-ui-example-todo",
-	"module": "index.ts",
+	"module": "src/index.ts",
 	"type": "module",
 	"scripts": {
-		"dev": "bun --hot server.ts",
-		"build": "bun build.ts",
+		"dev": "bun src/server.ts",
+		"build": "bun scripts/build.ts",
 		"typecheck": "tsgo",
 		"check": "bun --bun biome check --write",
 		"references:update": "git submodule update --init --recursive",

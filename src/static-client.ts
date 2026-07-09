@@ -1,6 +1,6 @@
 import { Console, Effect, ManagedRuntime } from "effect";
-import { AppLayer } from "./src/dev-client-layer.ts";
-import { TodoShell } from "./src/ui/shell.ts";
+import { AppLayer } from "./client-layer.ts";
+import { TodoShell } from "./ui/shell.ts";
 
 const runtime = ManagedRuntime.make(AppLayer);
 
@@ -14,11 +14,7 @@ void runtime.runPromise(
 					`Could not find root element for selector ${error.selector}`,
 				),
 			HtmlRenderError: (error) =>
-				Console.error("Could not render the initial todo app", error),
+				Console.error("Could not hydrate the todo app", error),
 		}),
 	),
 );
-
-if (import.meta.hot !== undefined) {
-	import.meta.hot.accept();
-}

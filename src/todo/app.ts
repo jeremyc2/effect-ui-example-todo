@@ -1,6 +1,12 @@
-import { Context, Effect, Layer, Ref } from "effect";
+import { Context, Effect, Layer } from "effect";
+import { AppState } from "../app-state.ts";
 import { TodoModel } from "./model.ts";
-import type { TodoCommand, TodoSnapshot } from "./schema.ts";
+import {
+	type TodoCommand,
+	type TodoSnapshot,
+	type TodoState,
+	TodoStateSchema,
+} from "./schema.ts";
 
 /**
  * Manages the live todo application state and executes todo commands against
@@ -9,6 +15,7 @@ import type { TodoCommand, TodoSnapshot } from "./schema.ts";
 export class TodoApp extends Context.Service<
 	TodoApp,
 	{
+		readonly state: Effect.Effect<TodoState>;
 		readonly snapshot: Effect.Effect<TodoSnapshot>;
 		readonly execute: (command: TodoCommand) => Effect.Effect<TodoSnapshot>;
 	}
@@ -16,21 +23,28 @@ export class TodoApp extends Context.Service<
 	static readonly layer = Layer.effect(
 		TodoApp,
 		Effect.gen(function* () {
+			const appState = yield* AppState;
 			const todoModel = yield* TodoModel;
-			const state = yield* Ref.make(todoModel.initialState);
+			const todoState = yield* appState.entry({
+				key: "todo",
+				schema: TodoStateSchema,
+				initial: todoModel.initialState,
+			});
 
-			const snapshot = Ref.get(state).pipe(Effect.map(todoModel.snapshot));
+			const currentState = todoState.get;
+			const snapshot = currentState.pipe(Effect.map(todoModel.snapshot));
 
 			const execute = Effect.fn("TodoApp.execute")(function* (
 				command: TodoCommand,
 			) {
-				yield* Ref.update(state, (current) =>
+				const next = yield* todoState.update((current) =>
 					todoModel.apply(current, command),
 				);
-				return yield* snapshot;
+				return todoModel.snapshot(next);
 			});
 
 			return TodoApp.of({
+				state: currentState,
 				snapshot,
 				execute,
 			});

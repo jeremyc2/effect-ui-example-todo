@@ -1,7 +1,9 @@
 import { Brand, Data, Schema } from "effect";
 
-export type TodoFilter = "all" | "active" | "completed";
 type NoFields = Record<never, never>;
+
+export const TodoFilterSchema = Schema.Literals(["all", "active", "completed"]);
+export type TodoFilter = Schema.Schema.Type<typeof TodoFilterSchema>;
 
 export const TodoIdSchema = Schema.String.pipe(Schema.brand("TodoId"));
 export type TodoId = Schema.Schema.Type<typeof TodoIdSchema>;
@@ -32,12 +34,13 @@ export class TodoItem extends Schema.Class<TodoItem>("TodoItem")({
 	completed: Schema.Boolean,
 }) {}
 
-export type TodoState = {
-	readonly items: ReadonlyArray<TodoItem>;
-	readonly nextId: number;
-	readonly draft: string;
-	readonly filter: TodoFilter;
-};
+export const TodoStateSchema = Schema.Struct({
+	items: Schema.Array(TodoItem),
+	nextId: Schema.Finite,
+	draft: Schema.String,
+	filter: TodoFilterSchema,
+});
+export type TodoState = Schema.Schema.Type<typeof TodoStateSchema>;
 
 export type TodoSnapshot = {
 	readonly items: ReadonlyArray<TodoItem>;
