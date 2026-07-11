@@ -1,12 +1,7 @@
-import { Context, Effect, Layer } from "effect";
-import { AppState } from "../app-state.ts";
+import { Context, Effect, Layer, Ref } from "effect";
+import { State } from "otaku-state";
 import { TodoModel } from "./model.ts";
-import {
-	type TodoCommand,
-	type TodoSnapshot,
-	type TodoState,
-	TodoStateSchema,
-} from "./schema.ts";
+import type { TodoCommand, TodoSnapshot, TodoState } from "./schema.ts";
 
 /**
  * Manages the live todo application state and executes todo commands against
@@ -23,21 +18,20 @@ export class TodoApp extends Context.Service<
 	static readonly layer = Layer.effect(
 		TodoApp,
 		Effect.gen(function* () {
-			const appState = yield* AppState;
+			const state = yield* State;
 			const todoModel = yield* TodoModel;
-			const todoState = yield* appState.entry({
+			const todoState = yield* state.make({
 				key: "todo",
-				schema: TodoStateSchema,
 				initial: todoModel.initialState,
 			});
 
-			const currentState = todoState.get;
+			const currentState = Ref.get(todoState);
 			const snapshot = currentState.pipe(Effect.map(todoModel.snapshot));
 
 			const execute = Effect.fn("TodoApp.execute")(function* (
 				command: TodoCommand,
 			) {
-				const next = yield* todoState.update((current) =>
+				const next = yield* Ref.updateAndGet(todoState, (current) =>
 					todoModel.apply(current, command),
 				);
 				return todoModel.snapshot(next);

@@ -1,5 +1,5 @@
 import { Layer } from "effect";
-import { AppStateLive } from "./app-state.ts";
+import { State } from "otaku-state";
 import { TodoApp } from "./todo/app.ts";
 import { TodoIds, TodoModel } from "./todo/model.ts";
 import {
@@ -21,9 +21,7 @@ const TodoModelLive = Layer.suspend(() =>
 	TodoModel.layer.pipe(Layer.provide(TodoIds.layer)),
 );
 export const TodoAppLive = Layer.suspend(() =>
-	TodoApp.layer.pipe(
-		Layer.provide(Layer.mergeAll(TodoModelLive, AppStateLive)),
-	),
+	TodoApp.layer.pipe(Layer.provide(Layer.mergeAll(TodoModelLive, State.layer))),
 );
 
 const TodoHeaderViewLive = Layer.suspend(() =>

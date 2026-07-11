@@ -2,4 +2,4 @@
 pathIgnorePatterns = ["reference_repositories/**"]
 
 [serve.static]
-plugins = ["bun-plugin-tailwind"]
+plugins = ["bun-plugin-tailwind", "otaku-hmr/plugin"]

@@ -5,25 +5,27 @@
 	"scripts": {
 		"dev": "bun src/server.ts",
 		"build": "bun scripts/build.ts",
-		"typecheck": "tsgo",
-		"check": "bun --bun biome check --write",
+		"typecheck": "tsc",
+		"check": "biome check --write",
 		"references:update": "git submodule update --init --recursive",
 		"prepare": "effect-tsgo patch",
 		"chore:update": "bun update --latest && bun add effect@beta @effect/platform-bun@beta"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "^2.5.2",
-		"@effect/tsgo": "^0.16.0",
-		"@types/bun": "latest",
-		"@typescript/native-preview": "^7.0.0-dev.20260705.1"
+		"@biomejs/biome": "^2.5.3",
+		"@effect/tsgo": "^0.19.0",
+		"@types/bun": "^1.3.14",
+		"typescript": "^7.0.2"
 	},
 	"dependencies": {
-		"@effect/platform-bun": "^4.0.0-beta.93",
+		"@effect/platform-bun": "^4.0.0-beta.97",
 		"@lit-labs/ssr": "^4.1.0",
 		"@lit-labs/ssr-client": "^1.1.8",
 		"bun-plugin-tailwind": "^0.1.2",
-		"effect": "^4.0.0-beta.93",
+		"effect": "^4.0.0-beta.97",
 		"lit-html": "^3.3.3",
+		"otaku-hmr": "file:../otaku/packages/otaku-hmr",
+		"otaku-state": "file:../otaku/packages/otaku-state",
 		"tailwindcss": "^4.3.2"
 	}
 }
